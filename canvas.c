@@ -1,4 +1,5 @@
 /* nuklear - v1.05 - public domain */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -20,10 +21,14 @@
 #define NK_INCLUDE_FONT_BAKING
 #define NK_INCLUDE_DEFAULT_FONT
 #define NK_IMPLEMENTATION
-#include "../nuklear.h"
+#include "nuklear.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
+
+#if HAVE_CONFIG_H
+#  include <config.h>
+#endif /* HAVE_CONFIG_H */
 
 /* macros */
 #define WINDOW_WIDTH 1200
