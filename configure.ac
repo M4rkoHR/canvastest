@@ -3,9 +3,9 @@
 
 #AC_PREREQ(2.60)
 AC_INIT(OrqaNuklearCanvas, 1.0, null@gmail.com)
-AC_CONFIG_SRCDIR([OrqaNuklearCanvas.c])
+AC_CONFIG_SRCDIR([canvas.c])
 AC_CONFIG_HEADER([config.h])
-AM_INIT_AUTOMAKE(OrqaNuklearCanvas, main)
+AM_INIT_AUTOMAKE(canvas, main)
 
 # Checks for programs.
 AC_PROG_CC
