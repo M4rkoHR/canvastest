@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "*.ejs": "html",
+        "*.a": "arm",
+        "a_application.h": "c",
+        "u_datatypes.h": "c",
+        "u_utilities.h": "c",
+        "i_inputhandling.h": "c",
+        "r_rendering.h": "c"
+    }
+}
