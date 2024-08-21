@@ -19,7 +19,7 @@ $ ./paint
 */
 
 #include <stdlib.h>
-#include <SDL.h>
+#include <SDL/SDL.h>
 
 // paint: Utility function that paints colors to a surface.
 void paint(SDL_Surface *surface, int x, int y,
