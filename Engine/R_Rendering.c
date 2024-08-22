@@ -120,20 +120,41 @@ void R_Paint(int x1, int y1, int x2, int y2)
             R_DrawCircle(x1, y1, bushSize);
             
     // Creates the path from Old Mouse coords and current
+    int repx = 1;
+    int repy = 1;
+    int i = 0;
+    int j = 0;
     while(x1 != x2 || y1 != y2)
     {
-        if(x1 != x2)
-            if(x1 > x2)
-                x1--;
-            else if (x1 < x2)
-                x1++;
-
-        if(y1 != y2)
-            if(y1 > y2)
-                y1--;
-            else if(y1 < y2)
-                y1++;
-
+        if(i < repx){
+            if(x1 != x2)
+                x1 += x1 > x2 ? -1 : 1;
+            else
+                repx = 0;
+            i++;
+        }
+        if(j < repy){
+            if(y1 != y2)
+                y1 += y1 > y2 ? -1 : 1;
+            else
+                repy = 0;
+            j++;
+        }
+        if (i >= repx && j >= repy){
+            if(x1 != x2 && y1 != y2){
+                float slope = fabsf(((float)(y2-y1))/((float)(x2-x1)));
+                if(slope > 128.f) slope = 128.f;
+                if(slope < 0.0078125f) slope = 0.0078125f;
+                if(slope >= 1){
+                    repy=round(slope);
+                }
+                else{
+                    repx=round(1.f/slope);
+                }
+            }
+            i = 0;
+            j = 0;
+        }
         // Draw a simple line if bushSize is 1
         if(bushSize <= 1) {
             if( x1 >= 0 && x1 < SCREEN_WIDTH && y1 >= 0 && y1 < SCREEN_HEIGHT)    // To not go outside of boundaries
